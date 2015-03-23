@@ -1,0 +1,17 @@
+<nav id="mobile-nav">
+   <ul>
+    <% for (var i in theme.menu){ %>
+      <% if (typeof theme.menu[i] === 'string')  {%>
+        <li><a class="mobile-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+      <% } else {%>
+          <li><a class="mobile-nav-link"><%= i %></a>
+            <ul class="mobile-nav-submenu">  
+            <% for (var y in theme.menu[i]){ %>
+               <li><a class="mobile-nav-submenu-link" href="<%- url_for(theme.menu[i][y]) %>"><%= y %></a></li>
+            <% } %>
+           </ul>
+         </li>
+      <% } %>
+    <% } %>
+  </ul>  
+</nav>
